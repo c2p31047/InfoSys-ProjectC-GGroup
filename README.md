@@ -3,6 +3,7 @@
 作成したものをAddfileからこのGithub内にいれてください
 
 [index.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/)
+
 [template.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/main/flaskr/templates/index.html)
 
 
