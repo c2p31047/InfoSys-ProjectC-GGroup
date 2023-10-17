@@ -1,0 +1,65 @@
+set FLASK_APP=flaskr
+set FLASK_DEBUG=1
+flask run
+
+<link rel="stylesheet" href="{{ url_for('static', ileneme='style.css')}}">
+<select name="time">
+   option value="">選択してください</option>
+                            <option value="朝">朝</option>
+                            <option value="1時間目">１時間目</option>
+                            <option value="2時間目">２時間目</option>
+                            <option value="3時間目">３時間目</option>
+                            <option value="お昼休み">お昼休み</option>
+                            <option value="4時間目">４時間目</option>
+                            <option value="5時間目">５時間目</option>
+                            <option value="6時間目">６時間目</option>
+                            <option value="放課後">放課後</option>
+</select>
+
+{
+    const selectElement = document.getElementById("place");
+    const customPlaceInput = document.getElementById("customplace");
+
+    // カスタムプレイスの値を取得
+    const customPlaceValue = customPlaceInput.value;
+
+    // ローカルストレージに保存
+    localStorage.setItem("customPlace", customPlaceValue);
+
+    // 新しい選択肢をセレクトボックスに追加
+    const addElement = document.getElementById("place");
+    const newPlace = new Place(customPlaceValue, customPlaceValue);
+    addElement.appendChild(newPlace);
+
+    // カスタムプレイスを選択状態にする
+    newOption.selected = true;
+
+    // カスタムプレイスの入力をクリア
+    customPlaceInput.value = "";
+
+  }
+
+  <td>
+    <select name="time">
+        <option value="朝">朝</option>
+        <option value="1時間目">１時間目</option>
+        <option value="2時間目">２時間目</option>
+        <option value="3時間目">３時間目</option>
+        <option value="お昼休み">お昼休み</option>
+        <option value="4時間目">４時間目</option>
+        <option value="5時間目">５時間目</option>
+        <option value="6時間目">６時間目</option>
+        <option value="放課後">放課後</option>
+    </select>
+</td>
+<td>
+    <select id="place" name="place"></select>
+        <input type="text" id="customplace" placeholder="場所を追加">
+        <button type="button" onclick="addCustomPlace()">追加</button>
+    
+    <select id="place" name="place">
+                            <option value="">選択してください</option>
+                        </select>
+                        <input type="text" id="customplace" placeholder="場所を追加">
+                        <button type="button" onclick="addCustomPlace()">追加</button>
+                        
