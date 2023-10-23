@@ -5,6 +5,8 @@
 [index.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/)
 
 [accounts/login.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/main/accounts/login.html)
+ログイン・サインアップ関連のものを仮で作成
+Google Firebaseを使用
 
 [flaskr/template.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/main/flaskr/templates/index.html)
 
