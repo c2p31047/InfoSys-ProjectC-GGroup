@@ -5,7 +5,6 @@
 [index.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/)
 
 [accounts/login.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/accounts/login.html)
-仮ログイン関連"Google Firebase"を使用
 
 [map/map.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/map/map.html)
 
