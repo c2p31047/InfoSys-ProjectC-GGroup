@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>掲示板</title>
+
+    </head>
+    <body>
+        <h1>掲示板</h1>
+        <!-- postでリクエストを投げ、テキストボックスに入っているデータを送ることができる -->
+        <!-- post:リクエストの種類　データを送る -->
+        <form id="form" method="post" action="/touroku-register">
+            <table border="1">
+                <!-- テーブルの見出し -->
+                <tr>
+                    <th>日にち</th>
+                    <th>時間</th>
+                    <th>場所</th>
+                    <th>名前</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date" class="touroku" id="date" name="date">
+                    </td>
+                    <td>
+                        <select class="touroku" id="time" name="time">
+                            <!-- jsで反映 -->
+                        </select>
+                    </td>
+                    <td>
+                        <select type="text" class="touroku" id="place" name="place">
+                            <!-- jsで反映 -->
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="touroku" id="name" name="name">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button type="submit">登録</button>
+        </form>
+    </body>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</html>

@@ -1,0 +1,65 @@
+/* 土台 */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* 全体 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header, footer, .sidebar, .content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+header{
+    border-bottom: solid pink 10px;
+    height: 40px;
+}
+
+.sidebar {
+    flex-basis: 200px;
+}
+
+.content {
+    flex-grow: 1;
+    width: 500px;
+}
+
+/* リンク */
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(37, 84, 255);
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    margin-top: 10px;
+    background-color: #2eb8ff;
+    color: #fff;
+    padding: 10px 0;
+}
