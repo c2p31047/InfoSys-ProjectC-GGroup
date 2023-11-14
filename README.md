@@ -2,6 +2,12 @@
 
 作成したものをAddfileからこのGithub内にいれてください
 
+
+manage.pyをflaskr起動時に使用してください
+※flaskrフォルダと同じ階層のディレクトリに入れてください
+
+----------------------
+
 [index.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/)
 
 [accounts/login.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/accounts/login.html)
