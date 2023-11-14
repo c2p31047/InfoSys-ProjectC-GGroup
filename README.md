@@ -3,7 +3,7 @@
 作成したものをAddfileからこのGithub内にいれてください
 
 
-manage.pyをflaskr起動時に使用してください
+manage.pyをflaskr起動時に使用してください</br>
 ※flaskrフォルダと同じ階層のディレクトリに入れてください
 
 ----------------------
