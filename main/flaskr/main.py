@@ -1,11 +1,25 @@
-#flaskアプリのオブジェクトをインポート
+# flaskアプリのオブジェクトをインポート
 from flaskr import app
-#現在日時
-import datetime 
-current_date = datetime.date.today() 
-from flask import render_template,request,redirect,url_for
+# 現在日時
+import datetime
+from flask import render_template, request, redirect, url_for, flash
+from werkzeug.security import generate_password_hash, check_password_hash  # Add this import
 import sqlite3
+app.secret_key = 'your_secret_key'
+
 tourokuDATABASE = "touroku_database.db"
+
+# データベース接続のヘルパーファンクション
+def get_db():
+    return sqlite3.connect(tourokuDATABASE)
+
+# ユーザーテーブルの初期化
+def init_db():
+    with get_db() as con:
+        con.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, password TEXT NOT NULL);")
+
+# ユーザーテーブルの初期化
+init_db()
 
 #トップ画面(index.html)にアクセスしたときに実行される
 @app.route('/')#　/　=　WebアプリのトップのURL
@@ -51,5 +65,45 @@ def register():
     #終わった後に最初の画面に戻す
     return redirect(url_for("index"))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
+        with get_db() as con:
+            cursor = con.cursor()
+            cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+            user = cursor.fetchone()
 
+            if user and check_password_hash(user[2], password):
+                flash('ログイン成功', 'success')
+                return redirect(url_for('index'))
+            else:
+                flash('ログイン失敗。ユーザー名またはパスワードが正しくありません。', 'error')
+
+    return render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        with get_db() as con:
+            cursor = con.cursor()
+            cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+            existing_user = cursor.fetchone()
+
+            if existing_user:
+                flash('そのユーザー名は既に使われています。', 'error')
+                return redirect(url_for('signup'))
+
+            hashed_password = generate_password_hash(password, method='sha256')
+            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+            con.commit()
+
+            flash('新しいユーザーが登録されました。', 'success')
+            return redirect(url_for('login'))
+
+    return render_template('signup.html')
