@@ -16,7 +16,7 @@ def get_db():
 # ユーザーテーブルの初期化
 def init_db():
     with get_db() as con:
-        con.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, password TEXT NOT NULL);")
+        con.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL);")
 
 # ユーザーテーブルの初期化
 init_db()
@@ -68,39 +68,39 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
 
         with get_db() as con:
             cursor = con.cursor()
-            cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
-            user = cursor.fetchone()
+            cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+            email = cursor.fetchone()
 
-            if user and check_password_hash(user[2], password):
+            if email and check_password_hash(email[2], password):
                 flash('ログイン成功', 'success')
                 return redirect(url_for('index'))
             else:
-                flash('ログイン失敗。ユーザー名またはパスワードが正しくありません。', 'error')
+                flash('ログイン失敗。メールアドレスまたはパスワードが正しくありません。', 'error')
 
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
 
         with get_db() as con:
             cursor = con.cursor()
-            cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+            cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
             existing_user = cursor.fetchone()
 
             if existing_user:
-                flash('そのユーザー名は既に使われています。', 'error')
+                flash('そのメールアドレスは既に使われています。', 'error')
                 return redirect(url_for('signup'))
 
             hashed_password = generate_password_hash(password, method='sha256')
-            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+            cursor.execute("INSERT INTO users (email, password) VALUES (?, ?)", (email, hashed_password))
             con.commit()
 
             flash('新しいユーザーが登録されました。', 'success')

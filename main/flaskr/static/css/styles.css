@@ -59,7 +59,7 @@ header{
     text-align: left;
   }
   
-  #username,
+  #email,
   #password {
     width: 100%;
     padding: 10px;
@@ -101,6 +101,13 @@ li {
 
 }
 
+.error {
+  color: red;
+}
+
+.success {
+  color: rgba(0, 148, 5, 0.733);
+}
 
 /* フッター */
 footer {

@@ -12,12 +12,22 @@
         <div class="container">
             <div class="signup-form">
                 <h1>ユーザー登録</h1>
+                <div class="log">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
                 <form action="/signup" method="post">
-                    <label for="username">ユーザー名:</label>
-                    <input type="text" name="username" id="username" required><br>
-                    <label for="password">パスワード:</label>
-                    <input type="password" name="password" id="password" required><br>
+                    <input type="email" name = "email" id="email" placeholder="メールアドレス" required>
+                    <input type="password" name = "password" id="password" placeholder="パスワード" required>    
                     <button type="submit">登録</button>
+                </form>
                     <div class="links">
                         <a href="/login">ログインページに戻る</a>
                     </div>
