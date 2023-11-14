@@ -16,7 +16,7 @@ manage.pyをflaskr起動時に使用してください</br>
 [map/map.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/map/map.html)
 
 
-[flaskr/template.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/flaskr/templates/index.html)
+[flaskr/template.html](https://c2p31047.github.io/InfoSys-ProjectC-GGroup/main/flaskr/templates/index.html)
 
 
 
