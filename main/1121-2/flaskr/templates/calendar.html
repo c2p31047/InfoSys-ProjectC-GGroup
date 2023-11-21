@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約確認・編集ページ</title>
+
+    <!-- FullCalendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
+
+    <!-- Your custom CSS and JS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/script.js"></script>
+
+</head>
+<body>
+    <a href="{{ url_for('index') }}">ホーム</a>
+    <a href="{{ url_for('logout') }}">ログアウト</a>
+    <div id="calendar"></div>
+
+    <!-- 予約の詳細に関するスクリプト -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <h2>予約の詳細</h2>
+            <!-- 予約の詳細の表示する -->
+        </div>
+    </div>
+
+    <!-- Your custom HTML content -->
+
+</body>
+</html>

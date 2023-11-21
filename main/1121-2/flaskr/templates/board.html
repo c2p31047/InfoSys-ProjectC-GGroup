@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>掲示板</title>
+    </head>
+    <body>
+        <h1>掲示板</h1>
+            {% if info == [] %}
+                <p>投稿はありません</p>
+            {% else %}
+                <table border="1">
+                    <!-- テーブルの見出し -->
+                    <tr>
+                        <th>日付</th>
+                        <th>時間</th>
+                        <th>場所</th>
+                        <th>名まえ</th>
+                    </tr>
+                    {% for infos in info %}
+                        <tr>
+                            <!-- テーブルのデータ -->
+                            <td>{{infos.date}}</td>
+                            <td>{{infos.time}}</td>
+                            <td>{{infos.place}}</td>
+                            <td>{{infos.name}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        <!-- ログアウトリンクを追加 -->
+        <a href="{{ url_for('logout') }}">ログアウト</a>
+        <!-- 引数にはクリックしたら実行させたい関数を入れる -->
+        <a href="{{ url_for('form') }}">投稿</a>
+    </body>
+</html>
