@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Home</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <ul>
+        {% for button in buttons %}
+            <li><a href="{{ button.url }}">{{ button.label }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+<form method="POST" action="{{ url_for('logout') }}">
+    <button type="submit" class="btn btn-secondary">Logout</button>
+</form>
