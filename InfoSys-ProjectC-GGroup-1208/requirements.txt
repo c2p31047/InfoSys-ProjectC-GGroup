@@ -1,0 +1,9 @@
+Flask
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+SQLAlchemy
+gunicorn
+pymysql
+flask_apscheduler
+email_validator

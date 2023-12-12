@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}教室予約管理 - 位置情報共有{% endblock %}
+
+{% block content %}
+    <script src="/static/js/map.js"></script>
+    <h1 class="map">位置情報共有</h1>
+    <div id="map"></div>
+    <button id="getLocation">位置情報を取得</button>
+    <p id="locationText"></p>
+{% endblock %}
