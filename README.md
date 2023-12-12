@@ -1,7 +1,7 @@
 # InfoSys-ProjectC-GGroup
 
-Latest Version
-app.pyで起動
+Latest Version</br>
+app.pyで起動</br>
 cmd pip install -r requirements.txt で依存ファイルダウンロード
 
 
