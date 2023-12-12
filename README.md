@@ -15,7 +15,7 @@ manage.pyをflaskr起動時に使用してください</br>
 ※mainフォルダのようにflaskrフォルダと同じ階層のディレクトリに入れてください
 pip3 install Flask
 
-**コマンドプロンプトで pip install flask でインストール**
+コマンドプロンプトで pip install flask でインストール
 
 ----------------------
 
