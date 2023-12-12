@@ -1,5 +1,13 @@
 # InfoSys-ProjectC-GGroup
 
+Latest Version
+app.pyで起動
+cmd pip install -r requirements.txt で依存ファイルダウンロード
+
+
+
+
+---------------------
 作成したものをAddfileからこのGithub内にいれてください
 
 
